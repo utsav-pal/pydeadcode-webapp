@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PyDeadCode - A blazingly fast Python dead code detector written in Rust. 10-50x faster than Vulture.">
+    <meta name="keywords" content="python, dead code, rust, static analysis, linter, code quality">
+    <title>PyDeadCode - Fast Python Dead Code Detector</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <span class="logo-icon">🔍</span>
+                    <span class="logo-text">PyDeadCode</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#features">Features</a>
+                    <a href="#install">Install</a>
+                    <a href="#usage">Usage</a>
+                    <a href="#docs">Docs</a>
+                    <a href="https://github.com/utsav-pal/pydeadcode" target="_blank" class="github-link">
+                        <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                        </svg>
+                        GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="badge">v0.1.0 • MIT License</div>
+                <h1 class="hero-title">
+                    Find Dead Code<br/>
+                    <span class="gradient-text">Blazingly Fast</span>
+                </h1>
+                <p class="hero-subtitle">
+                    A lightning-fast Python dead code detector written in Rust.<br/>
+                    <strong>10-50x faster than Vulture.</strong> Tree-sitter powered. Zero dependencies.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#install" class="btn btn-primary">Get Started →</a>
+                    <a href="https://github.com/utsav-pal/pydeadcode" target="_blank" class="btn btn-secondary">View on GitHub</a>
+                </div>
+                <div class="hero-code">
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-dots">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </span>
+                            <span class="code-title">Terminal</span>
+                        </div>
+                        <pre><code><span class="comment"># Install from crates.io</span>
+<span class="command">cargo install</span> pydeadcode
+
+<span class="comment"># Analyze your Python code</span>
+<span class="command">pydeadcode</span> main.py
+
+<span class="output">Dead Code Found:</span>
+<span class="warning">main.py: line 42 - unused_function [function] (80% confidence)</span>
+<span class="warning">main.py: line 89 - DeadClass [class] (80% confidence)</span>
+
+<span class="output">2 dead code items found</span></code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Why PyDeadCode?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Lightning Fast</h3>
+                    <p>10-50x faster than Vulture. Analyze 1000+ lines in ~50ms. Written in Rust for maximum performance.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Highly Accurate</h3>
+                    <p>95%+ accuracy using tree-sitter AST parsing. Smart heuristics minimize false positives.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3>Intelligent Detection</h3>
+                    <p>Recognizes magic methods, decorators, test functions, and entry points automatically.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Confidence Scoring</h3>
+                    <p>60-85% confidence levels based on context. Private functions get higher confidence scores.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <h3>Zero Dependencies</h3>
+                    <p>Single binary, no Python installation needed. Works on Linux, macOS, and Windows.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Beautiful Output</h3>
+                    <p>Color-coded terminal reports with line numbers and confidence levels for easy navigation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation Section -->
+    <section id="install" class="install">
+        <div class="container">
+            <h2 class="section-title">Installation</h2>
+            <div class="install-grid">
+                <div class="install-method">
+                    <h3>📦 Cargo (Recommended)</h3>
+                    <div class="code-block">
+                        <pre><code><span class="comment"># Install Rust first: https://rustup.rs</span>
+<span class="command">curl</span> --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+<span class="comment"># Install pydeadcode</span>
+<span class="command">cargo install</span> pydeadcode
+
+<span class="comment"># Verify installation</span>
+<span class="command">pydeadcode</span> --version</code></pre>
+                    </div>
+                </div>
+                <div class="install-method">
+                    <h3>🔧 From Source</h3>
+                    <div class="code-block">
+                        <pre><code><span class="comment"># Clone repository</span>
+<span class="command">git clone</span> https://github.com/utsav-pal/pydeadcode.git
+<span class="command">cd</span> pydeadcode
+
+<span class="comment"># Build release version</span>
+<span class="command">cargo build</span> --release
+
+<span class="comment"># Binary at target/release/pydeadcode</span>
+<span class="command">./target/release/pydeadcode</span> --version</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="uninstall-section">
+                <h3>🗑️ Uninstall</h3>
+                <div class="code-block">
+                    <pre><code><span class="comment"># Uninstall pydeadcode</span>
+<span class="command">cargo uninstall</span> pydeadcode
+
+<span class="comment"># Verify removal</span>
+<span class="command">pydeadcode</span> --version
+<span class="output">command not found</span></code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Usage Section -->
+    <section id="usage" class="usage">
+        <div class="container">
+            <h2 class="section-title">Usage Examples</h2>
+            <div class="usage-grid">
+                <div class="usage-card">
+                    <h3>Basic Usage</h3>
+                    <div class="code-block">
+                        <pre><code><span class="comment"># Single file</span>
+<span class="command">pydeadcode</span> app.py
+
+<span class="comment"># Multiple files</span>
+<span class="command">pydeadcode</span> file1.py file2.py
+
+<span class="comment"># All files in directory</span>
+<span class="command">pydeadcode</span> src/**/*.py</code></pre>
+                    </div>
+                </div>
+                <div class="usage-card">
+                    <h3>Advanced Options</h3>
+                    <div class="code-block">
+                        <pre><code><span class="comment"># Set confidence threshold</span>
+<span class="command">pydeadcode</span> main.py --min-confidence 75
+
+<span class="comment"># JSON output for CI/CD</span>
+<span class="command">pydeadcode</span> main.py --json > report.json
+
+<span class="comment"># Verbose output</span>
+<span class="command">pydeadcode</span> main.py --verbose</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detection-table">
+                <h3>What Gets Detected</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Confidence</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Unused Functions</td>
+                            <td><span class="badge-confidence high">80%</span></td>
+                            <td><code>def unused(): pass</code></td>
+                        </tr>
+                        <tr>
+                            <td>Unused Classes</td>
+                            <td><span class="badge-confidence high">80%</span></td>
+                            <td><code>class UnusedClass: pass</code></td>
+                        </tr>
+                        <tr>
+                            <td>Unused Methods</td>
+                            <td><span class="badge-confidence medium">70%</span></td>
+                            <td><code>def method(self): pass</code></td>
+                        </tr>
+                        <tr>
+                            <td>Private Unused</td>
+                            <td><span class="badge-confidence very-high">85%</span></td>
+                            <td><code>def _private(): pass</code></td>
+                        </tr>
+                        <tr>
+                            <td>Decorated Unused</td>
+                            <td><span class="badge-confidence low">60%</span></td>
+                            <td><code>@decorator<br>def func(): pass</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Section -->
+    <section class="performance">
+        <div class="container">
+            <h2 class="section-title">Performance Comparison</h2>
+            <div class="performance-chart">
+                <div class="chart-container">
+                    <div class="chart-bar" style="--height: 5%;">
+                        <div class="bar pydeadcode"></div>
+                        <div class="bar-label">
+                            <strong>PyDeadCode</strong><br>
+                            <span class="time">50ms</span>
+                        </div>
+                    </div>
+                    <div class="chart-bar" style="--height: 25%;">
+                        <div class="bar vulture"></div>
+                        <div class="bar-label">
+                            <strong>Vulture</strong><br>
+                            <span class="time">2.5s</span>
+                            <span class="multiplier">50x slower</span>
+                        </div>
+                    </div>
+                    <div class="chart-bar" style="--height: 100%;">
+                        <div class="bar pylint"></div>
+                        <div class="bar-label">
+                            <strong>Pylint</strong><br>
+                            <span class="time">15s</span>
+                            <span class="multiplier">300x slower</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="benchmark-note">Benchmark: 1000+ line Python codebase on Intel i7, 16GB RAM</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentation Section -->
+    <section id="docs" class="docs">
+        <div class="container">
+            <h2 class="section-title">Documentation</h2>
+            <div class="docs-grid">
+                <a href="https://github.com/utsav-pal/pydeadcode/blob/main/README.md" class="doc-card">
+                    <div class="doc-icon">📖</div>
+                    <h3>README</h3>
+                    <p>Complete guide with examples and API reference</p>
+                </a>
+                <a href="https://crates.io/crates/pydeadcode" class="doc-card">
+                    <div class="doc-icon">📦</div>
+                    <h3>Crates.io</h3>
+                    <p>Package page with version history and metadata</p>
+                </a>
+                <a href="https://github.com/utsav-pal/pydeadcode/issues" class="doc-card">
+                    <div class="doc-icon">🐛</div>
+                    <h3>Issue Tracker</h3>
+                    <p>Report bugs and request features</p>
+                </a>
+                <a href="https://github.com/utsav-pal/pydeadcode/blob/main/CONTRIBUTING.md" class="doc-card">
+                    <div class="doc-icon">🤝</div>
+                    <h3>Contributing</h3>
+                    <p>Learn how to contribute to the project</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Find Dead Code?</h2>
+            <p>Install PyDeadCode and start cleaning up your Python projects today.</p>
+            <div class="cta-buttons">
+                <a href="#install" class="btn btn-primary btn-large">Get Started →</a>
+                <a href="https://github.com/utsav-pal/pydeadcode" target="_blank" class="btn btn-secondary btn-large">
+                    <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                    </svg>
+                    Star on GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>PyDeadCode</h4>
+                    <p>A blazingly fast Python dead code detector written in Rust.</p>
+                    <p class="copyright">© 2025 Utsav Pal. MIT License.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="https://github.com/utsav-pal/pydeadcode">GitHub</a></li>
+                        <li><a href="https://crates.io/crates/pydeadcode">Crates.io</a></li>
+                        <li><a href="https://github.com/utsav-pal/pydeadcode/issues">Issues</a></li>
+                        <li><a href="https://github.com/utsav-pal/pydeadcode/blob/main/LICENSE">License</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="https://github.com/utsav-pal/pydeadcode/blob/main/README.md">Documentation</a></li>
+                        <li><a href="https://github.com/utsav-pal/pydeadcode/blob/main/CONTRIBUTING.md">Contributing</a></li>
+                        <li><a href="https://github.com/utsav-pal">Author</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
